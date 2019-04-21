@@ -8,7 +8,8 @@ app = Flask(__name__)
 
 app.config.from_mapping(
         SQLALCHEMY_DATABASE_URI = "mysql://root:123456@localhost/dss",
-        SQLALCHEMY_TRACK_MODIFICATIONS = False
+        SQLALCHEMY_TRACK_MODIFICATIONS = False,
+        TEMPLATES_AUTO_RELOAD = True
     )
 
 db.init_app(app)
@@ -23,5 +24,6 @@ def assist():
     if(data is None):
         return jsonify({'message': 'Data is null'})
 
-if __name__ == 'main':
+if __name__ == '__main__':
+    app.jinja_env.auto_reload = True
     app.run(port=5000, debug=True, threaded=True, host='0.0.0.0')
