@@ -20,8 +20,6 @@ def topsis(matrix, optionNum, w, wNum):
         for j in range(optionNum):
             matrix[j][i] = w[i]*matrix[j][i]/arrSum[i]
     
-    print(matrix)
-
     #Step 3
     aP = []
     aM = []
@@ -29,9 +27,6 @@ def topsis(matrix, optionNum, w, wNum):
         aP.append(numpy.amax(row))
         aM.append(numpy.amin(row))
     
-    print(aP)
-    print(aM)
-
     #Step 4
     sP = []
     sM = []
