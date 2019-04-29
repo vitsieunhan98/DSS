@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="main">
-            <div class="search">
+            <form class="search" actions="/" method="GET">
                 <div class="price">
                     <select name="price" id="price" value="Giá">
                         <option selected disabled hidden>Giá mua</option>
@@ -31,10 +31,16 @@
                     </select>
                 </div>
                 <div class="address">
-                    <input id="address" type="text" placeholder="Địa điểm bạn muốn mua">
+                    <select name="address" id="address">
+                        <option selected disabled hidden>Địa điểm bạn muốn mua</option>
+                        <option value="hanoi">Hà Nội</option>
+                        <option value="hcm">TP. Hồ Chí Minh</option>
+                    </select>
+                    <!-- <input id="address" type="text" placeholder="Địa điểm bạn muốn mua"> -->
                 </div>
-                <button id="search-button">Tìm ngay</button>
-            </div>
+                <input type="submit" id="search-button" value="Tìm ngay">       
+            </form>
+            {{ houses }}
         </div>
     </body>
     </html>
