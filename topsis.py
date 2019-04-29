@@ -46,12 +46,28 @@ def topsis(matrix, optionNum, w, wNum):
 
     print(c)
 
-#optionNum x wNum
-matrix = [[690, 3.1, 9, 7, 4],
-          [590, 3.9, 7, 6, 10],
-          [600, 3.6, 8, 8, 7],
-          [620, 3.8, 7, 10, 6],
-          [700, 2.8, 10, 4, 6],
-          [650, 4.0, 6, 9, 8]]
-w = [0.3, 0.2, 0.2, 0.15, 0.15]
-topsis(matrix, 6, w, 5)
+    return c.sort(reverse=True)
+
+def bestPrice(matrix):
+    #Price, area, floor, bedroom
+    w = [0.4, 0.25, 0.2, 0.15]
+
+    for i in range(len(matrix)):
+        matrix[i][0] = 1./matrix[i][0]
+
+    return topsis(matrix, len(matrix), w, len(matrix.T))
+
+def bestArea(matrix):
+    w = [0.3, 0.35, 0.1, 0.25]
+
+    return topsis(matrix, len(matrix), w, len(matrix.T))
+
+# optionNum x wNum
+# matrix = [[690, 3.1, 9, 7, 4],
+#           [590, 3.9, 7, 6, 10],
+#           [600, 3.6, 8, 8, 7],
+#           [620, 3.8, 7, 10, 6],
+#           [700, 2.8, 10, 4, 6],
+#           [650, 4.0, 6, 9, 8]]
+# w = [0.3, 0.2, 0.2, 0.15, 0.15]
+# topsis(matrix, 6, w, 5)
