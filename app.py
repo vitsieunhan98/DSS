@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
-from topsis import topsis
-
+from topsis import bestPrice, bestArea
 
 app = Flask(__name__)
 
@@ -28,9 +27,12 @@ class House(db.Model):
 
 @app.route('/')
 def index():
+    # Get arguments from request
     price = request.args.get('price')
     address = request.args.get('address')
+    # Get all houses
     houses = House.query.all()
+    # filter_houses is a list containing houses which match conditions (price and address)
     filter_houses = []
     if address == "hanoi":
         for house in houses:
@@ -65,6 +67,24 @@ def index():
                         'on_street': house.on_street,
                         'status': house.status
                     })
+    length = len(filter_houses)
+    # Define a matrix
+    matrix = [[0 for x in range(4)] for x in range(length)] 
+    # Bring value to matrix (price, area, bedroom_number, floor_number)
+    i = 0
+    for house in filter_houses:
+        matrix[i][0] = float(house['price'])
+        matrix[i][1] = house['area']
+        matrix[i][2] = house['bedroom_number']
+        matrix[i][3] = house['floor_number']
+        i = i + 1
+    # Calculate weight of each house using topsis
+    weight = bestPrice(matrix)
+    for i in range(length):
+        filter_houses[i]['weight'] = weight[i]
+    filter_houses.sort(key=lambda x: x['weight'], reverse=True)
+    print(filter_houses)
+
     return render_template('home.html', houses=filter_houses)
 
 if __name__ == '__main__':

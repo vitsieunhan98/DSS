@@ -44,9 +44,7 @@ def topsis(matrix, optionNum, w, wNum):
     for i in range(len(sP)):
         c.append(sM[i]/(sP[i] + sM[i]))
 
-    print(c)
-
-    return c.sort(reverse=True)
+    return c
 
 def bestPrice(matrix):
     #Price, area, floor, bedroom
@@ -55,12 +53,12 @@ def bestPrice(matrix):
     for i in range(len(matrix)):
         matrix[i][0] = 1./matrix[i][0]
 
-    return topsis(matrix, len(matrix), w, len(matrix.T))
+    return topsis(matrix, len(matrix), w, 4)
 
 def bestArea(matrix):
     w = [0.3, 0.35, 0.1, 0.25]
 
-    return topsis(matrix, len(matrix), w, len(matrix.T))
+    return topsis(matrix, len(matrix), w, 4)
 
 # optionNum x wNum
 # matrix = [[690, 3.1, 9, 7, 4],
