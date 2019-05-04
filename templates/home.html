@@ -40,7 +40,24 @@
                 </div>
                 <input type="submit" id="search-button" value="Tìm ngay">       
             </form>
-            {{ houses }}
+            <table style="text-align: center; width: 80%; margin: 0 auto; padding: 100px 0 50px 0;">
+                <tr>
+                    <th> Giá </th>
+                    <td> Địa điểm </td>
+                    <td> Diện tích </td>
+                    <td> Số phòng ngủ </td>
+                    <td> Số tầng </td>
+                </tr>
+                {% for house in houses %}
+                   <tr>
+                      <th> {{ house.price }} </th>
+                      <td> {{ house.address }} </td>
+                      <td> {{ house.area }} </td>
+                      <td> {{ house.bedroom_number }} </td>
+                      <td> {{ house.floor_number }} </td>
+                   </tr>
+                {% endfor %}
+             </table>
         </div>
     </body>
     </html>

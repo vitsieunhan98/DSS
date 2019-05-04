@@ -48,7 +48,7 @@ def topsis(matrix, optionNum, w, wNum):
 
 def bestPrice(matrix):
     #Price, area, floor, bedroom
-    w = [0.4, 0.25, 0.2, 0.15]
+    w = [0.4, 0.25, 0.15, 0.2]
 
     for i in range(len(matrix)):
         matrix[i][0] = 1./matrix[i][0]

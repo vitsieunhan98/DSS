@@ -36,8 +36,10 @@ def index():
     filter_houses = []
     if address == "hanoi":
         for house in houses:
+            print(house.address)
             if "Hà Nội" in house.address:
-                if (float(house.price) <= price + price*0.2) and (float(house.price) >= price - price*0.4):
+                price = float(price)
+                if (float(house.price) <= price + price*0.15) and (float(house.price) >= price - price*0.3):
                     filter_houses.append({
                         'id': house.id,
                         'address': house.address,
@@ -50,11 +52,11 @@ def index():
                         'on_street': house.on_street,
                         'status': house.status
                     })
-    if address == "hcm":
+    elif address == "hcm":
         for house in houses:
-            if "Quận" in house.address or "Hồ Chí Minh" in house.address:
+            if "Hồ Chí Minh" in house.address:
                 price = float(price)
-                if (float(house.price) <= price + price*0.2) and (float(house.price) >= price - price*0.4):
+                if (float(house.price) <= price + price*0.15) and (float(house.price) >= price - price*0.3):
                     filter_houses.append({
                         'id': house.id,
                         'address': house.address,
