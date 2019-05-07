@@ -6,6 +6,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Real estate</title>
         <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="static/bootstrap-table.min.js"></script>
     </head>
     <body>
         <div class="banner">
@@ -28,6 +33,10 @@
                         <option value="6">6 tỷ</option>
                         <option value="7">7 tỷ</option>
                         <option value="8">8 tỷ</option>
+                        <option value="9">9 tỷ</option>
+                        <option value="10">10 tỷ</option>
+                        <option value="11">11 tỷ</option>
+                        <option value="12">12 tỷ</option>
                     </select>
                 </div>
                 <div class="address">
@@ -40,19 +49,30 @@
                 </div>
                 <input type="submit" id="search-button" value="Tìm ngay">       
             </form>
-            <table style="text-align: center; width: 80%; margin: 0 auto; padding: 100px 0 50px 0;">
-                <tr>
-                    <th> Giá </th>
-                    <td> Địa điểm </td>
-                    <td> Diện tích </td>
-                    <td> Số phòng ngủ </td>
-                    <td> Số tầng </td>
-                </tr>
+            <br>
+            <br>
+            <br>
+            <div>
+                <select>
+                    <option value="gia">Giá tốt nhất</option>
+                    <option value="dientich">Diện tích tốt nhất</option>
+                </select>
+            </div>
+            <table class="table table-bordered" style="text-align: left; width: 80%; margin: 0 auto; padding: 100px 0 50px 0;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th> Giá </th>
+                        <th> Địa điểm </th>
+                        <th> Diện tích </th>
+                        <th> Số phòng ngủ </th>
+                        <th> Số tầng </th>
+                    </tr>
+                </thead>
                 {% for house in houses %}
                    <tr>
-                      <th> {{ house.price }} </th>
+                      <th> {{ house.price }} tỷ</th>
                       <td> {{ house.address }} </td>
-                      <td> {{ house.area }} </td>
+                      <td> {{ house.area }} m2</td>
                       <td> {{ house.bedroom_number }} </td>
                       <td> {{ house.floor_number }} </td>
                    </tr>

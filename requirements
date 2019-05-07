@@ -26,7 +26,6 @@ Flask-Script==2.0.5
 Flask-SQLAlchemy==2.1
 FormEncode==1.3.1
 funcsigs==1.0.2
-futures==3.2.0
 gevent==1.4.0
 google-api-python-client==1.6.4
 greenlet==0.4.15
@@ -48,9 +47,6 @@ MySQL-python==1.2.5
 ndg-httpsclient==0.5.1
 neverbounce-sdk==4.2.4
 numpy==1.16.2
-oauth2==1.5.211
-oauth2client==4.1.2
-oauthlib==3.0.1
 openpyxl==2.6.1
 paypalrestsdk==1.13.1
 pbr==5.1.3
@@ -73,16 +69,11 @@ python-dateutil==2.8.0
 python-editor==1.0.4
 python-geoip==1.2
 python-geoip-geolite2==2015.303
-python-memcached==1.58
-python-upwork==1.2.3
 pytz==2017.2
 redis==2.10.6
 requests==2.13.0
 requests-oauthlib==1.2.0
 rsa==4.0
-s3transfer==0.1.13
-salesforce-requests-oauthlib==0.1.12
-salesforce-streaming-client==0.1.3
 SAValidation==0.3.2
 simplejson==3.16.0
 six==1.12.0

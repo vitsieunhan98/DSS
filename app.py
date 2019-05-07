@@ -80,7 +80,7 @@ def index():
         matrix[i][2] = house['bedroom_number']
         matrix[i][3] = house['floor_number']
         i = i + 1
-    # Calculate weight of each house using topsis
+    # Calculate C of each house using topsis
     weight = bestPrice(matrix)
     for i in range(length):
         filter_houses[i]['weight'] = weight[i]
