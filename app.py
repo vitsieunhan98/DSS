@@ -30,6 +30,7 @@ def index():
     # Get arguments from request
     price = request.args.get('price')
     address = request.args.get('address')
+    option = request.args.get('option')
     # Get all houses
     houses = House.query.all()
     # filter_houses is a list containing houses which match conditions (price and address)
@@ -80,12 +81,16 @@ def index():
         matrix[i][2] = house['bedroom_number']
         matrix[i][3] = house['floor_number']
         i = i + 1
+
+    houses = filter_houses
     # Calculate C of each house using topsis
-    weight = bestPrice(matrix)
+    if option == "gia":
+        weight = bestPrice(matrix)
+    else:
+        weight = bestArea(matrix)
     for i in range(length):
         filter_houses[i]['weight'] = weight[i]
     filter_houses.sort(key=lambda x: x['weight'], reverse=True)
-    print(filter_houses)
 
     return render_template('home.html', houses=filter_houses)
 

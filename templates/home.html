@@ -33,10 +33,6 @@
                         <option value="6">6 tỷ</option>
                         <option value="7">7 tỷ</option>
                         <option value="8">8 tỷ</option>
-                        <option value="9">9 tỷ</option>
-                        <option value="10">10 tỷ</option>
-                        <option value="11">11 tỷ</option>
-                        <option value="12">12 tỷ</option>
                     </select>
                 </div>
                 <div class="address">
@@ -47,18 +43,19 @@
                     </select>
                     <!-- <input id="address" type="text" placeholder="Địa điểm bạn muốn mua"> -->
                 </div>
+                <div class="option">
+                    <select name="option" id="option">
+                        <option selected disabled hidden>Lựa chọn theo</option>
+                        <option value="gia">Giá tốt nhất</option>
+                        <option value="dientich">Diện tích tốt nhất</option>
+                    </select>
+                </div>
                 <input type="submit" id="search-button" value="Tìm ngay">       
             </form>
             <br>
             <br>
             <br>
-            <div>
-                <select>
-                    <option value="gia">Giá tốt nhất</option>
-                    <option value="dientich">Diện tích tốt nhất</option>
-                </select>
-            </div>
-            <table class="table table-bordered" style="text-align: left; width: 80%; margin: 0 auto; padding: 100px 0 50px 0;">
+            <table class="table table-bordered" style="text-align: left; width: 80%; margin: 0 auto; margin-bottom: 50px;">
                 <thead class="thead-dark">
                     <tr>
                         <th> Giá </th>
@@ -68,11 +65,12 @@
                         <th> Số tầng </th>
                     </tr>
                 </thead>
+                
                 {% for house in houses %}
                    <tr>
-                      <th> {{ house.price }} tỷ</th>
+                      <th> {{ house.price }} </th>
                       <td> {{ house.address }} </td>
-                      <td> {{ house.area }} m2</td>
+                      <td> {{ house.area }} </td>
                       <td> {{ house.bedroom_number }} </td>
                       <td> {{ house.floor_number }} </td>
                    </tr>
