@@ -60,6 +60,7 @@
                     <tr>
                         <th> Giá </th>
                         <th> Địa điểm </th>
+                        <th> Ảnh mô tả</th>
                         <th> Diện tích </th>
                         <th> Số phòng ngủ </th>
                         <th> Số tầng </th>
@@ -68,9 +69,10 @@
                 
                 {% for house in houses %}
                    <tr>
-                      <th> {{ house.price }} </th>
+                      <th> {{ house.price }} tỷ</th>
                       <td> {{ house.address }} </td>
-                      <td> {{ house.area }} </td>
+                      <td><img src="{{ house.image }}" style="width: 200px"; height="100px"></td>
+                      <td> {{ house.area }} m<sup>2</sup></td>
                       <td> {{ house.bedroom_number }} </td>
                       <td> {{ house.floor_number }} </td>
                    </tr>
